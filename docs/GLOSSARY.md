@@ -31,3 +31,26 @@ Typewriter heritage: ending a line = carriage return (CR, `\r`) + line feed (LF,
 - Git's "LF will be replaced by CRLF" warning is not an error: it's Git narrating that it stores the neutral form (LF) in the repository and hands Windows its native form (CRLF) in the working copy.
 - The per-machine setting (`core.autocrlf`) works but isn't shared; the professional fix is a **`.gitattributes`** file with `* text=auto`, committed to the repo, so every contributor's machine follows the same policy.
 - Why care: apps are developed on any OS but usually deployed to Linux, where stray CRLF in scripts/configs causes confusing failures.
+
+---
+
+## Tracked vs. untracked files (and why a diff sometimes shows nothing)
+
+Git divides the files in the folder into two groups:
+
+- **Tracked** — Git has at least one committed version of this file. It watches the
+  file for changes and can show them as a **diff** (red = removed, green = added),
+  because it has a stored "before" to compare the current file against. In VS Code's
+  Source Control panel, a changed tracked file gets an **`M`** (modified) badge.
+- **Untracked** — the file exists in the folder, but Git has never been told to
+  manage it (it has never been part of a commit). Git has no history for it, so
+  there is **nothing to diff against** — every line is simply "new." VS Code marks
+  these with a **`U`** (untracked) badge, and clicking one just opens the file.
+
+**The lesson that taught me this:** I edited a document across several sessions but
+never committed it, then wondered why VS Code wouldn't show a side-by-side diff. The
+file was untracked (`U`) — there was no committed baseline to compare against. `git add`
+then `git commit` makes it tracked; from the *next* edit onward, diffs work normally.
+
+**Habit:** when Git behaves unexpectedly, run **`git status`** first. It labels every
+file (untracked, modified, staged) and almost always explains the surprise itself.
