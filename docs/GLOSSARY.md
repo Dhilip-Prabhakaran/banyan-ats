@@ -54,3 +54,57 @@ then `git commit` makes it tracked; from the *next* edit onward, diffs work norm
 
 **Habit:** when Git behaves unexpectedly, run **`git status`** first. It labels every
 file (untracked, modified, staged) and almost always explains the surprise itself.
+
+---
+
+## Stakeholder vs. user
+
+- **Stakeholder** — *anyone who cares about the system:* affected by it, funds it,
+  constrains it (e.g. a data-privacy regulator), or judges it. Many stakeholders
+  never log in.
+- **User** — the narrower group who *actually touch the software.* Every user is a
+  stakeholder; not every stakeholder is a user.
+
+**Why it matters:** you design features for *users*, but you must satisfy
+*stakeholders*. The founder may never open the app, yet if it doesn't produce the
+hiring report he wants, it fails *for him*. Beginners build only for the person
+clicking buttons and get blindsided by the person signing the cheque. A stakeholder
+register lists everyone; only the users get a [[persona]].
+
+---
+
+## Persona (and "telling detail")
+
+A **persona** is a single, named, semi-fictional character standing in for one *type*
+of user — invented from real observation and given a name, role, goals, and
+frustrations. Not "the HR user" but "Arthi, HR Manager at a 100-person firm, terrified
+two recruiters are chasing the same candidate."
+
+- **Why invent a person?** It makes design decisions concrete ("would this help Arthi
+  on a busy Monday?"), kills feature-creep ("which persona needs this?"), and builds
+  empathy.
+- **Telling detail** — the single most valuable line in a persona: one specific, human
+  thing (a habit, a fear, a workaround) that turns a role into a person. The best ones
+  name a *feeling* and thereby drive a feature (Rachel fears being the scapegoat →
+  the system should make the process visible and enforced).
+- **Trap:** personas must come from observed reality, not invented demographics.
+
+**Primary persona** — the one type you optimise the core screens for *first*. The test
+is **frequency and centrality of use** (who lives in the product all day), *not* who
+has the most permissions. Optimising for the daily user usually keeps the occasional
+users satisfied too; the reverse often fails.
+
+---
+
+## RBAC (Role-Based Access Control)
+
+A system defines **roles** (e.g. Admin, Hiring Manager, Recruiter), and each role
+carries a fixed set of **permissions**. Users are granted a role rather than
+permissions one by one, so access stays consistent and easy to reason about.
+
+- **Alternatives:** per-user permissions (flexible but quickly unmanageable);
+  ABAC — attribute-based access control (permissions computed from attributes like
+  department or time of day; more powerful, much more complex). RBAC is the common
+  default because it matches how organisations actually think ("she's an admin").
+- **How I met it:** the three internal [[persona]]s mapped onto three permission
+  tiers — profiling real people surfaced a standard design pattern.
