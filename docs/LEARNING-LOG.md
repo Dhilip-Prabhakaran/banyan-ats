@@ -21,8 +21,8 @@ A few lines after every work session or completed slice: what was built, what I 
 
 - The difference between the as-is and to-be is your product's entire value. 
 - Placed side by side, every place the to-be is simpler, faster, or safer is a feature justified
-- flowchart TD
-    A([Application arrives]) --> B[Recruiter reviews]
-    B --> C{Qualified?}
-    C -->|Yes| D[Schedule interview]
-    C -->|No| E([Reject])
+-
+A([Application arrives]) --> B[Recruiter reviews]
+B --> C{Qualified?}
+C -->|Yes| D[Schedule interview]
+C -->|No| E([Reject])
