@@ -15,3 +15,14 @@ A few lines after every work session or completed slice: what was built, what I 
 - Every User is stakeholder and they actually touches the software
 - Stakeholders are all involved in the process, funds it, manges it, controls it,constraint it, judges it.Many stakeholder never logs in.
 - Design features for users but satisfy stakeholders
+- The primary persona is the one who cannot be satisfied by an interface designed for any other persona, and around whose core task the main screens are optimized
+
+## 2026-07-10 - Process Flow
+
+- The difference between the as-is and to-be is your product's entire value. 
+- Placed side by side, every place the to-be is simpler, faster, or safer is a feature justified
+- flowchart TD
+    A([Application arrives]) --> B[Recruiter reviews]
+    B --> C{Qualified?}
+    C -->|Yes| D[Schedule interview]
+    C -->|No| E([Reject])
