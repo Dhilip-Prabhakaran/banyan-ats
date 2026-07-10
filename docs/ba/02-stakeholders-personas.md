@@ -1,119 +1,111 @@
 # Stakeholders & Personas — Banyan ATS
 
-> **Status: TEMPLATE — to be filled by Dhilip, then reviewed together.**
-> Guidance blockquotes are retained as a learning record; delete them as each
-> section gets real content.
+> **Status: REVISED v0.2** — first draft by Dhilip, reworked together on 2026-07-05.
+> Guidance blockquotes are retained as a learning record; delete them once a section
+> has real content.
 >
-> **Key idea to hold while writing:** a *stakeholder* is anyone who cares about the
-> system (affected by it, funds it, constrains it, judges it). A *user* is the
-> narrower group who actually touches the software. Every user is a stakeholder;
-> not every stakeholder is a user. Part A lists everyone (wide + shallow);
-> Part B goes deep on only the people who actually use it.
+> **Key idea:** a *stakeholder* is anyone who cares about the system (affected by it,
+> funds it, constrains it, judges it). A *user* is the narrower group who actually
+> touches the software. Every user is a stakeholder; not every stakeholder is a user.
+> Part A lists everyone (wide + shallow); Part B goes deep on only the people who
+> actually use it.
 
 ---
 
 ## Part A — Stakeholder register
 
-> Cast a wide net. List everyone who cares about Banyan ATS, whether or not they log
-> in. For each: their main interest (what they want from it) and their influence
-> (how much their opinion shapes the product). "Is a user?" marks whether they
-> actually touch the software — this is what tells you who gets a persona in Part B.
+> Cast a wide net. List everyone who cares, whether or not they log in. For each:
+> their main interest, their influence (High/Medium/Low), and whether they actually
+> touch the software. The "Is a user?" column is the hinge — it decides who gets a
+> persona in Part B.
+
+| Stakeholder | Main interest | Influence | Is a user? |
+|-------------|---------------|-----------|------------|
+| Founder / co-founders | Fast, correct hires; value for money | High | Rarely — views summary reports only |
+| Director | Correct hires; reviews recruitment reports | High | Rarely |
+| Department Head | A candidate with the right skillset for a vacancy | High | Rarely |
+| HR Manager (Admin) | Configure and oversee the whole flow; records & activity logs | High | **Core user** |
+| Hiring Manager | Publish jobs; assign candidates to recruiters; approve key stages | High | **Core user** |
+| HR Executive / Recruiter | Work the board daily; move candidates; schedule; communicate | Medium | **Core user** |
+| Panel Member | Interview and score candidates | Medium | Limited — scorecard entry page only |
+| Candidate | Apply; track progress; (later) self-schedule | Low | Limited — application form |
+| Employee Referrer | Refer known candidates; referral bonus | Low | Limited — referral page (later version) |
+| Accounts / Finance | Salary budget for open roles | Low | Not a user |
+| Background Verification Team | Verify certificates of hired candidates | Low | Not a user — Recruiter records the outcome |
+| 3rd-party Assessment Team | Conduct written / mass assessments | Low | Not a user |
+
+> **Resolved contradiction:** the Background Verification Team does *not* type into
+> Banyan in v1 — the Recruiter records their outcome. That keeps them a stakeholder,
+> not a user. (Integrating them directly is a later-version decision.)
 >
-> Influence = High / Medium / Low. Think beyond the obvious: who pays? who could
-> block adoption? who sets rules the system must obey (data privacy)?
-
-| Stakeholder | Their main interest | Influence | Is a user? |
-|-------------|--------------------|-----------|------------|
-| *Company founder* | *fast, correct hires; value for money* | *High* | *Rarely* |
-| *Company co-founder/s*|*fast, correct hires; value for money* | *High*| *Rarely*|
-| *Director |Correct hires; review the report of recruitment process | *High* |Rarely |
-| *Department Head*|*Candidate with required skillset for vacant position*| *High*| *Rarely*|
-| *HR Manager*|*Admin of the application,execute smooth recruitment flow with records and activity logs of process and candidates, *|*High*|*Core User*|
-| *Hiring Manager*|*Publish jobs, allocate or asssign candidates to team members or recruiters*|*High*|*Core User*|
-| *HR Executive/Recruiter*|*Work on kanban board of the app,moves candidate between stages,create interview panel, schedule, mail the users on differen stages if not automated*|*Medium*|*Core User*|
-| *Panel Member*|*Any member involved in Interview, techinical/psychometry/ Expert in and out of organisation* | *Medium*| *Only the assesment scorecard entry page user*|
-| *Candidate*|*Apply for the job, self schedule slots if any* | *Low*| *Only application page / self scheduling page user*|
-| *Employee Referrer*|*Refer the known/referal bonus reflection* | *Low*| *Only the referral page user*|
-| *Accounts/Finance Admin*|*Discuss salary Budget with HR* | *Low*| *Not a user*|
-| *Background Verification Team*|*Verify certificated of hired employess/update the status after hired* | *Low*| *Not a user*|
-| *3rd Party assessement Team*|*Conduct written examination for off campus/ mass recruitment* | *Low*| *Not a user*|
-
-> After filling: circle (in your mind) the rows marked "Yes" under "Is a user?" —
-> those are the ONLY ones that get a full persona below. Everyone else is satisfied
-> through features and reports, not screens designed for them.
+> The rows marked **Core user** are the ones that earn a full persona below. Everyone
+> else is satisfied through features and reports, not screens designed for them.
 
 ---
 
 ## Part B — Personas
 
-> Write a deep profile for each of the 3–4 people who ACTUALLY USE the system.
-> Draw on real people you've observed (or been). Give each a name and a face in your
-> mind. Repeat the block below for each persona.
+> A deep profile for each person who actually uses the system, drawn from real people
+> observed (or been). Names use matching initials to their role so they stay memorable
+> (Arthi/Admin-ish, Mani/Manager, Rachel/Recruiter, Cathy/Candidate).
 
-> Keep them distinct: if two personas have the same goals and frustrations, you
-> probably have one persona, not two.
+### Persona 1 — Arthi, HR Manager (Admin)
 
-### Persona 1 — [Arthi], [HR Manager]
+- **Snapshot:** HR Manager at a ~100-employee firm; comfortable with software; owns the hiring system end to end.
+- **In the hiring process, they:** hold all permissions; create job openings from department requirements; design each job's process (stages + scoring) with the department head and leadership; assign whole jobs or individual candidates to hiring managers; use override permission to resolve discrepancies; export reports for the director and founders.
+- **Goals:** a well-defined, consistent process for every job; live visibility of progress.
+- **Frustrations today:**
+  - Candidates apply through several HRs at once, with no single place to see them all.
+  - Every job needs a different flow, but rushing it all into one day causes poor selection.
+- **What they need from Banyan ATS:**
+  - A predefined flow (stages + scoring) attached to each job *at posting time*.
+  - Progress reports, and automation wherever possible.
+- **Telling detail:** She has been burned by two recruiters unknowingly chasing the same candidate, so she instinctively wants to see *everything* herself — which makes her the bottleneck she resents being.
 
-> A real-sounding name and one-line role. e.g. "Priya, office manager at a 25-person firm."
+### Persona 2 — Mani, Hiring Manager
 
-- **Snapshot:** *Arthi, HR Manager at a 100 - employee firm.*
-- **In the hiring process, they:** *Arthi is the Admin of the application who holds all permission of the application, creates job openings based on vacancies from different department requirements through dept heads, creates the recruitment process, stages, scoring plan for each job based on dept head, director, co-founders discussion, allocate either the complete job or assign candidates to hiring managers, using special permission can sort out any discripencies created. Export the reports and submit to director and co-founders.*
-- **Goals (what does a good day look like for them?):**
-  - *Well defined recruitment *
-  - *Live updates on the progress*
-- **Frustrations today (what makes them sigh?):**
-  - *Candidtaes applying at multiple places through different HRs, no centralized place to view all*
-  - *Each job requires different recruitment flow, so completing the whole flow on 1 day causes wrong selection of candidate*
-- **What they need from Banyan ATS (in their words, outcomes not features):**
-  - *A predefined flow set for each job during the job posting itself*
-  - *Reports of the progress and auromated workflow wherever possible*
-- **A telling detail** *rthi can now discuss with higher officials and dept heads about JD, vacancies and create stage -scoring plan for each job seperately and immediately add it along with job posting **
-  - *...*
+- **Snapshot:** manages a team of recruiters; accountable for filling his department's roles.
+- **In the hiring process, they:** assign candidates to recruiters; approve candidates at key stages; form interview / demo / group-discussion panels; invite panel members with schedules; balance recruiter workloads.
+- **Goals:** smoothly monitor recruitment and balance his team's workload.
+- **Frustrations today:** hard to centralize and follow different processes for different jobs at the same time.
+- **What they need from Banyan ATS:** a clear workflow and automation to manage workloads and monitor recruiter activity live.
+- **Telling detail:** Mani lives in back-to-back meetings; his real fear is that a strong candidate goes cold while he's away from his desk, so he wants the system to nudge him when *his* approval is the thing holding a candidate up.
 
-### Persona 2 — [Mani], [Hiring Manager]
+### Persona 3 — Rachel, Recruiter (HR Executive)
 
-- **Snapshot:*Mani, Hiring Manager handling a recruiter team.
-- **In the hiring process, they:*Assign the candidates to recruiters , approves the candidates when moved to important stage, create recruitmnt panels for interviews , demo , group discussions etc.. Manages the work load of recruiters under him, Invites the panel members and inform the time schedule.*
-- **Goals:*Smoothly moniters the recuitment process and manage work load of recruiters*
-- **Frustrations today:*Difficult to centralize and follow different process for different jobs*
-- **What they need from Banyan ATS:*A clear workflow and automated process to manage workloads and live monitoring of the recruiter work*
-- **A telling detail:*Mani has problem with work allocation to recruiter*
+- **Snapshot:** executes the day-to-day recruitment; lives in the board.
+- **In the hiring process, they:** enter scores at each stage; move candidates between stages; manually record outcomes from the assessment and background-verification teams; handle email with candidates and panel members; build interview schedules, create slots, allocate panel members.
+- **Goals:** move candidates stage by stage and complete the process cleanly.
+- **Frustrations today:** tracking every candidate in Excel is hard; each recruiter keeps their own data; coordination is painful.
+- **What they need from Banyan ATS:** a smooth interface to move candidates through stages; less dependence on managers by working to a preset flow; easy scheduling and communication.
+- **Telling detail:** Rachel is often the scapegoat when an unplanned process goes wrong for a candidate or the team — so she wants the process visible and enforced, to share the accountability rather than carry it alone.
 
-### Persona 3 — [Rachel], [Recruiter]
+### Persona 4 — Cathy, Candidate
 
-- **Snapshot:*Rachel , a HR Executive conducts and updates the info ans scoes in the different recruitment process*
-- **In the hiring process, they:*entry the scores on each stage, and move candidate from one stage to another. Collect data from 3rd party team, Background vrification team and updates manually, email communication with the candidate, panel members. Create complete schedule for interview, create slots, allocate panle members. *
-- **Goals:*Moving the candidate stage by stage and completing the recruitement process*
-- **Frustrations today:*Monitoring all the candidtates in excel is difficult, each and every recruiter have their own data, difficult to co-ordinate the candidate and process*
-- **What they need from Banyan ATS:*A smooth interface to move the candiates from different stages, reduce the dependency of managers and work on preset condition and flow, easy cordination in sending mail and scheduling interviews and creting slots.*
-- **A telling detail:*Rachel often be the scapegoat for unplanned process difficulties faced by candidate and recruitment team*
+- **Snapshot:** applies expecting a clear JD, a seamless application, visibility of the major stages, and no unnecessary waiting.
+- **In the hiring process, they:** apply via web portal (or hard copy); fill the form; upload documents; *(later version)* self-schedule interview slots; move through each stage; accept the offer.
+- **Goals:** a smooth process with zero unnecessary waiting, clear communication, hassle-free scheduling.
+- **Frustrations today:** made to wait for hours because interview planning is poor.
+- **What they need from Banyan ATS:** an application portal, two-way communication, and *(later)* self-scheduling — especially for candidates travelling a distance.
+- **Telling detail:** Cathy once lost a whole day to a disorganized, uncommunicative process — with no clear schedule she couldn't plan her travel, and she now judges a company's professionalism by how it runs its hiring.
 
-### Persona 4 — [Cathy], [Candidate]
-
-- **Snapshot:*Cathy , a candidate expects clear JD with seamless application process, ale to know all major stages of recruitement process for that job, quick process without any unwanted waiting time *
-- **In the hiring process, they:*apply job to through web portal or post a hard copy to company, fills the application form,uploads necessary documents, self scedule the interview slot if there, goes through each stage of the process, approves offer after given*
-- **Goals:*Smooth process with zero unncessary waiting time, clear communication and schedule without any hastle*
-- **Frustrations today:*Made to wait for hours as planning of interview process in not proper in organization*
-- **What they need from Banyan ATS:*application portal, two way communication, self scheduling of stages for long didtant candidates*
-- **A telling detail:*Cathy had bad experience of waiting for whole day to complete a recruitment process, without proper communication her travel plan and everything cannot be preplanned*
-
-> Add a Persona 4 only if there is a genuinely distinct fourth type of user.
-> (Common set for an ATS: the person who tracks/coordinates, the person who decides,
-> the person who interviews, and the candidate. Decide if the candidate is a "user"
-> in v1 — they are, of one screen: the application form.)
+> **v1 scope note on Cathy:** in v1 she is a user of *one* screen — the application
+> form (apply + upload). Self-scheduling and online offer acceptance are deferred to
+> a later version (see problem statement §7).
 
 ---
 
-## Part C — What this tells us (fill LAST, one line each)
+## Part C — What this tells us (design implications)
 
-> After Parts A and B, step back and note the design implications. This is where
-> the artifact earns its keep — it should change what we build.
-
-- **Primary persona (the one we optimise for first):**
-  *Admin since admin has all permission and can work on all flows.*
-
-- **A stakeholder who is NOT a user but must still be satisfied:** *who, and how — a report? a guarantee?*
-  *Founder: from a wrong selection of candidate, founder incure 3-6 months of salary loss, training cost. A transparent report explainig the recruitmnt funnel, filtering procedure, Candidate -JD match,time tken for the recruitment.*
-
-- **One thing a persona needs that we might have missed without writing this:** *Nothing as of now*
+- **Primary persona (optimise for first): Admin (Arthi).** Admin and Recruiter share
+  the same core board; Admin is a superset with extra config/override screens. We
+  optimise the shared board for the high-frequency daily flow, and keep admin-only
+  controls on *separate* screens so the board stays fast. *(Watch out: don't let
+  override controls clutter the daily board — that's the trap this choice risks.)*
+- **A stakeholder who is NOT a user but must still be satisfied: the Founder.** A
+  mis-hire costs 3–6 months of salary plus training. Satisfy through a transparent
+  report: recruitment funnel, filtering steps, candidate–JD match, and time-to-hire.
+- **What writing this surfaced:** the three internal personas map cleanly onto three
+  permission tiers — **Admin / Hiring Manager / Recruiter**. In other words, the
+  product needs **Role-Based Access Control (RBAC)**. We discovered a standard design
+  pattern by profiling real people, not by copying a template.
