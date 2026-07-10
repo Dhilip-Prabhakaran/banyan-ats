@@ -108,3 +108,51 @@ permissions one by one, so access stays consistent and easy to reason about.
   default because it matches how organisations actually think ("she's an admin").
 - **How I met it:** the three internal [[persona]]s mapped onto three permission
   tiers — profiling real people surfaced a standard design pattern.
+
+---
+
+## As-is vs. to-be (process flows)
+
+Two diagrams of the same process, drawn to compare:
+
+- **As-is** — how the work happens *today, without the product*. This is the problem,
+  drawn. An honest as-is looks messy — the mess is what you're selling against.
+- **To-be** — how the work happens *with the product*. This is the solution, drawn.
+
+**Why both:** the *difference* between the two maps is the product's entire value.
+Every place the to-be is simpler, faster, or safer justifies a feature. A step that's
+identical in both maps is a place the product isn't helping. The delta is the argument.
+Good to-be design *rethinks* steps, not just "adds software" to the old ones.
+
+---
+
+## Mermaid (diagrams as text)
+
+A language for writing diagrams as plain text that GitHub (and many tools) render into
+a picture. Chosen over drawing tools (PowerPoint, draw.io) because a text diagram lives
+in the repo, **diffs line-by-line** (you can see when a step was added), and costs
+nothing to edit — unlike a binary image, which Git can't diff. Diagrams-as-code is a
+strong, uncommon skill for a BA.
+
+**The three things that make it render (all required):**
+
+1. Wrap it in a fenced code block tagged `mermaid` — the ` ```mermaid ` tag is what
+   tells GitHub "draw this," not "print this." (Same fence that gives ` ```python `
+   syntax highlighting; `mermaid` triggers *rendering*.)
+2. The first line inside declares the diagram type, e.g. `flowchart TD` (top-down) or
+   `flowchart LR` (left-to-right). Without it, Mermaid errors.
+3. One statement per line — Mermaid reads line by line.
+
+Shape vocabulary: `([text])` = start/end (rounded), `[text]` = step (rectangle),
+`{text}` = decision (diamond), `-->` = arrow, `-->|Yes|` = labelled branch,
+`subgraph` = a swimlane grouping one actor's steps.
+
+**How I met it:** my first hand-typed test rendered as plain text — I'd dropped the
+` ```mermaid ` fence and the `flowchart TD` line, and put everything on one line. All
+three rules matter. See [[as-is-vs-to-be]] for what these diagrams are *for*.
+
+**To preview locally:** VS Code extension "Markdown Preview Mermaid Support", then open
+the Markdown preview. On GitHub it renders automatically in the browser.
+
+**Full syntax reference:** see `docs/reference/mermaid-guide.md` (a self-demonstrating
+cheat sheet — open it on GitHub to see each example rendered).
