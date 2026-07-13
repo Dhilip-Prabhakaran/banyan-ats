@@ -23,11 +23,11 @@
 |-------------|---------------|-----------|------------|
 | Founder / co-founders | Fast, correct hires; value for money | High | Rarely — views summary reports only |
 | Director | Correct hires; reviews recruitment reports | High | Rarely |
-| Department Head | A candidate with the right skillset for a vacancy | High | Rarely |
-| HR Manager (Admin) | Configure and oversee the whole flow; records & activity logs | High | **Core user** |
-| Hiring Manager | Publish jobs; assign candidates to recruiters; approve key stages | High | **Core user** |
+| Department Head | Approves requisitions raised by Hiring Managers; wants the right skillset for a vacancy | High | Rarely — approval step only |
+| HR Manager (Admin) | Configure and oversee the whole flow; Publish jobs; assign candidates to recruiters; approve key stages | High | **Core user** |
+| Hiring Manager | Raise job requisition (needs Department Head approval), create JD, sit on the interview panel for the round(s) assigned to him, own the hiring decision | High | **Core user** |
 | HR Executive / Recruiter | Work the board daily; move candidates; schedule; communicate | Medium | **Core user** |
-| Panel Member | Interview and score candidates | Medium | Limited — scorecard entry page only |
+| Panel Member | Interview and score candidates for a specific round — internal (incl. Hiring Manager) or external expert | Medium | Limited — scorecard entry page only |
 | Candidate | Apply; track progress; (later) self-schedule | Low | Limited — application form |
 | Employee Referrer | Refer known candidates; referral bonus | Low | Limited — referral page (later version) |
 | Accounts / Finance | Salary budget for open roles | Low | Not a user |
@@ -37,6 +37,18 @@
 > **Resolved contradiction:** the Background Verification Team does *not* type into
 > Banyan in v1 — the Recruiter records their outcome. That keeps them a stakeholder,
 > not a user. (Integrating them directly is a later-version decision.)
+>
+> **Resolved overlap — Hiring Manager vs. Panel Member:** a job can have several
+> interview rounds, each with its own panel. The Hiring Manager is *one specific*
+> panel member — assigned to whichever round(s) he's best suited to judge — not a
+> separate interviewing mechanism. Other rounds can carry other internal staff or
+> external experts as panel members. Same scorecard mechanism for everyone; only who
+> is assigned, and to which round, differs.
+>
+> **Resolved overlap — Department Head vs. Hiring Manager:** two different people.
+> The Hiring Manager (Mani) raises the requisition and runs the day-to-day hiring for
+> his team; the Department Head sits above him and only touches the system to
+> **approve the requisition** — a single gate, not ongoing involvement.
 >
 > The rows marked **Core user** are the ones that earn a full persona below. Everyone
 > else is satisfied through features and reports, not screens designed for them.
@@ -52,7 +64,7 @@
 ### Persona 1 — Arthi, HR Manager (Admin)
 
 - **Snapshot:** HR Manager at a ~100-employee firm; comfortable with software; owns the hiring system end to end.
-- **In the hiring process, they:** hold all permissions; create job openings from department requirements; design each job's process (stages + scoring) with the department head and leadership; assign whole jobs or individual candidates to hiring managers; use override permission to resolve discrepancies; export reports for the director and founders.
+- **In the hiring process, they:** hold all permissions; create job openings from department requirements; design each job's process (stages + scoring) with the department head and leadership; assign whole jobs or individual candidates to recruiters; Co-ordinate with hiring managers to create JD and recruitment stages, use override permission to resolve discrepancies; export reports for the director and founders.
 - **Goals:** a well-defined, consistent process for every job; live visibility of progress.
 - **Frustrations today:**
   - Candidates apply through several HRs at once, with no single place to see them all.
@@ -64,12 +76,12 @@
 
 ### Persona 2 — Mani, Hiring Manager
 
-- **Snapshot:** manages a team of recruiters; accountable for filling his department's roles.
-- **In the hiring process, they:** assign candidates to recruiters; approve candidates at key stages; form interview / demo / group-discussion panels; invite panel members with schedules; balance recruiter workloads.
-- **Goals:** smoothly monitor recruitment and balance his team's workload.
-- **Frustrations today:** hard to centralize and follow different processes for different jobs at the same time.
-- **What they need from Banyan ATS:** a clear workflow and automation to manage workloads and monitor recruiter activity live.
-- **Telling detail:** Mani lives in back-to-back meetings; his real fear is that a strong candidate goes cold while he's away from his desk, so he wants the system to nudge him when *his* approval is the thing holding a candidate up.
+- **Snapshot:** department-side manager who raises requisitions and is accountable for filling his department's roles; not an ATS administrator.
+- **In the hiring process, they:** raise a job requisition to HR Manager, pending the Department Head's approval; create the JD; get assigned by Admin as the panel member for the interview round(s) he's best placed to judge (one job may have several rounds, with other internal staff or external experts on the rest); own the final hiring decision for his requisitions.
+- **Goals:** a quick, low-friction requisition-and-approval flow; being pulled in only for the round(s) that need him; visibility into how his department's pipeline is progressing.
+- **Frustrations today:** missing out on a strong candidate because he wasn't available on the day his interview round was needed.
+- **What they need from Banyan ATS:** a simple requisition + JD flow with visible approval status; a clear notice of exactly which round(s) he owns; a fast way to submit his interview decision so it never becomes the bottleneck.
+- **Telling detail:** Mani lives in back-to-back meetings; his real fear is that a strong candidate goes cold while he's away from his desk, so he wants the system to nudge him the moment *his* round or *his* decision is the thing holding a candidate up.
 
 ### Persona 3 — Rachel, Recruiter (HR Executive)
 
@@ -105,7 +117,8 @@
 - **A stakeholder who is NOT a user but must still be satisfied: the Founder.** A
   mis-hire costs 3–6 months of salary plus training. Satisfy through a transparent
   report: recruitment funnel, filtering steps, candidate–JD match, and time-to-hire.
-- **What writing this surfaced:** the three internal personas map cleanly onto three
-  permission tiers — **Admin / Hiring Manager / Recruiter**. In other words, the
-  product needs **Role-Based Access Control (RBAC)**. We discovered a standard design
-  pattern by profiling real people, not by copying a template.
+- **What writing this surfaced:** the three internal personas map onto three distinct
+  roles with distinct permission sets — **Admin, Hiring Manager, Recruiter** — not a
+  strict nested hierarchy (Hiring Manager is narrow-scope, not a sub-Admin). In other
+  words, the product needs **Role-Based Access Control (RBAC)**. We discovered a
+  standard design pattern by profiling real people, not by copying a template.
