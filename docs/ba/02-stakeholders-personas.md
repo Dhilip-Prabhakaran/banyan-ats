@@ -1,6 +1,8 @@
 # Stakeholders & Personas — Banyan ATS
 
-> **Status: REVISED v0.2** — first draft by Dhilip, reworked together on 2026-07-05.
+> **Status: REVISED v0.3** — first draft by Dhilip (2026-07-05), reworked together the
+> same day, then Hiring Manager role clarified (panel-member overlap and Department
+> Head approval gate resolved) on 2026-07-15.
 > Guidance blockquotes are retained as a learning record; delete them once a section
 > has real content.
 >
